@@ -1,0 +1,63 @@
+Fill in the blank below by writing the appropriate operator function, parameters and return type,
+so  that the given test cases will be satisfied.
+Sample Test Cases
+Input	              Output
+
+Test Case 1	
+3.4
+5.6
+6
+7
+                    9+j13
+                    9.6+j6
+                    9.8+j7
+Test Case 2	
+5
+7
+4
+5
+                     12+j9
+                     11.2+j4
+                     11.2+j5
+Test Case 3	
+0
+1
+1
+1
+                     1+j2
+                    6.2+j1
+                    5.2+j1
+////////////////////////////
+#include <iostream>
+using namespace std;
+
+class Complex { double re, im; public:
+    explicit Complex(double r = 0, double i = 0) : re(r), im(i) { }
+    
+    void disp() { cout << re << "+j" << im << endl; }
+    
+    friend Complex operator+ (const Complex &a, const Complex &b) { 
+        return Complex(a.re + b.re, a.im + b.im);
+    }
+    friend Complex operator+ (const Complex &a, double d) { 
+        Complex b(d); return a + b; 
+    }
+  friend Complex operator+ (double d, const Complex &b){ // Write function Header { // Write function Header
+
+        Complex a(d); return a + b; 
+    }
+}; // End of class Complex
+int main(){
+    double x, y, z, w;
+    
+    cin >> x >> y;
+    cin >> z >> w;
+
+    Complex d1(x, z), d2(y, w), d3;
+
+    d3 = d1 + d2; d3.disp(); 
+    d3 = d1 + 6.2; d3.disp();
+    d3 = 4.2 + d2; d3.disp(); 
+
+    return 0;
+}
