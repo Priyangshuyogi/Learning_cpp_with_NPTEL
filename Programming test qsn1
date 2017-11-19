@@ -1,0 +1,40 @@
+Consider the following code. Perform the necessary modications in the code (in editable section), so that the calling sequence 
+of the constructor and destructor would be: B(), D(), ~D() and ~B().
+Note: Don't edit/ Modify the cout statements.
+Sample Test Cases
+Input	Output
+Test Case 1	
+2
+98-2-4-56
+Test Case 2	
+8
+98-8-16-56
+Test Case 3	
+3
+98-3-6-56
+///////////////////////////////
+
+    
+#include <iostream>
+using namespace std;
+class B {
+public:
+    B() { cout << "98-"; }
+    virtual~B() { cout << "56"; }  // Do not Edit/Modify the "cout"
+};
+
+class D : public B {
+    int n;
+public:
+    D(int p):n(p) { cout << n << "-"; }
+    ~D() { cout << n*2 << "-"; }
+};
+int main() {
+    int n ; cin >> n ;
+
+    B *basePtr = new D(n);
+
+    delete basePtr;
+
+    return 0;
+}
