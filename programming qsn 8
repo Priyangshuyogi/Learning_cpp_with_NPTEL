@@ -1,0 +1,52 @@
+Write the required constructor and function definitions of the class "Stack" to get the output as per the test cases.
+Sample Test Cases
+Input	              Output
+Test Case 1	
+erty
+                       yr
+Test Case 2	
+ghjilk
+                       kih
+Test Case 3	
+ADAM
+                       MD
+Test Case 4	
+ADAM
+                       MD
+/////////////////////////
+#include <iostream>
+#include <vector>
+#include <cstring>
+using namespace std;
+class Stack { 
+    public: // Write the appropriate Access specifier
+
+    vector<char> data_; int top_;
+    
+public:
+    int empty() { return(top_==-1); }
+
+    void push(char x) { data_[++top_]=x; }
+
+    void pop() { --top_; }
+
+    char top() { return data_[top_]; }
+};
+int main() {
+    Stack s; 
+    char str[20];
+
+    cin >> str;
+
+    s.data_.resize(100); 
+    s.top_ = -1; 
+    
+    for(int i = 0; i < strlen(str) ; ++i)
+        s.push(str[i]);
+        
+    while (!s.empty()) {
+        cout << s.top(); s.pop(); s.pop();
+    }     
+    
+    return 0;
+}
