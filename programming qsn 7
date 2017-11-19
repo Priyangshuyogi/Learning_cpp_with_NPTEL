@@ -1,0 +1,44 @@
+Consider the code given below.  Fill in the blank using the concept "static" to complete the code to match the output of the test cases.
+Sample Test Cases
+Input	            Output
+Test Case 1	
+5
+                  -4 -8
+Test Case 2	
+0
+                   1 2
+Test Case 3	
+-7
+                   8 16
+ //////////////////////
+#include<iostream>
+using namespace std;
+
+class MyClass { 
+
+    static int x; 
+
+public:
+
+    void get() { x++; }
+ 	static void print(int y) {
+
+        x = x - y;
+        cout << x << " ";
+    }
+
+}; // end of MyClass
+
+int MyClass::x=1; 
+int main() {
+    int x;
+    cin >> x;
+    
+    MyClass::print(x); 
+    
+    MyClass o1;
+    o1.get();
+    o1.print(x); 
+    
+    return 0;
+}
