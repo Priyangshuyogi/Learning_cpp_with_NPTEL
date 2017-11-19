@@ -1,0 +1,54 @@
+Write the required keyword/s and function names to get the output as per the test cases.
+Sample Test Cases
+Input               Output
+
+Test Case 1	
+-203
+-69
+9
+                    0 69 9 
+                    0 69 9 
+Test Case 2	
+178
+45
+0
+                    0 45 0 
+                    0 45 0 
+Test Case 3	
+-114
+20
+2
+                    114 20 2 
+                    114 20 2 
+ //////////////////////
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+namespace NS {
+    int abs(int n) {
+        if (n < -128) return 0;
+        if (n > 127) return 0;
+        if (n < 0) return -n;
+        return n;
+    }
+}
+
+int main() {
+    double x, y, z;
+    
+    cin >> x;
+    cin >> y;
+    cin >> z;
+    
+    cout << NS::abs(x) << " "
+    << NS::abs(y) << " "
+    << NS::abs(z) << " "
+     <<  endl;
+
+    cout <<NS::abs(x) << " "
+    << NS::abs(y) << " "
+    << NS::abs(z) << " "
+    << endl;
+
+    return 0;
+}
