@@ -1,0 +1,55 @@
+Fill in the blanks below to complete the program to overload the O/P stream. 
+The inputs and the desired output are given in form of test cases.
+Sample Test Cases
+Input	                 Output
+Test Case 1	
+25
+10
+2015
+                     25/10/2015
+Test Case 2	
+21
+09
+2017
+                     21/9/2017
+Test Case 3	
+12
+11
+2017
+                     12/11/2017
+/////////////////////////////////
+#include <iostream>
+using namespace std;
+
+class Date {
+    int da;  // 2 digit day
+    int mo;  // 2 digit month
+    int yr;  // 4 digit year
+
+public:
+
+    Date(int d, int m, int y): da(d), mo(m), yr(y) { }
+friend ostream& operator<<(ostream& os, const Date&); // Fill the return type
+
+};
+
+ostream& operator<<(ostream& os, const Date& dt) // Fill the return type
+
+{
+    os<<dt.da<<"/"<<dt.mo<<"/"<<dt.yr<<endl; // Fill the implementation
+
+    return os;
+}
+int main() {
+    int day = 0, month = 0, year = 0;
+
+    cin >> day;
+    cin >> month;
+    cin >> year;
+
+    Date dt(day, month, year);
+
+    cout << dt;
+    
+    return 0;
+}
