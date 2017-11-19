@@ -1,0 +1,53 @@
+Consider the code given below. Fill up the marked lines by following the instruction
+to complete the code and match the output of the test cases.
+Sample Test Cases
+Input	                Output
+Test Case 1	
+9
+                        9
+Test Case 2	
+0
+                        0
+Test Case 3	
+1
+                        1
+/////////////////////////
+#include <iostream>
+using namespace std;
+
+class A {
+protected:
+    int n;
+    A(int i) : n(i) { }
+    virtual void print() = 0;
+    virtual int get(){ return n+1; }
+};
+
+class B : private A {
+public:
+    B(int i) : A(i) {}
+ int get() {
+
+        return n; // The get function body
+
+    }
+
+}; // end of class A
+class C : public B {
+public:
+    C(int i) : B(i) {}
+
+    void print() {
+
+       cout <<get()<< endl; // display the result of the get function
+    }
+};
+int main() {
+    int n;
+    cin >> n;
+
+    C *p = new C(n);
+    p->print();
+
+    return 0;
+}
