@@ -1,0 +1,45 @@
+The program indicates the concept of mutability. Fill the blank with appropriate keywords to satisfy the given test cases.
+Sample Test Cases
+Input	           Output
+Test Case 1	
+5
+7
+8
+                    8
+Test Case 2	
+0
+1
+0
+                    0
+Test Case 3	
+11
+11
+11
+                   11
+      
+///////////////////////
+#include <iostream>
+using namespace std;
+class MyClass {
+    int mem_;
+    mutable int x_; 
+public:
+    MyClass(int m, int mm) : mem_(m), x_(mm) {}
+    
+    int getxMem() const { return x_; }
+    void setxMem(int i) const { x_ = i; } 
+};
+int main() {
+    int x, y, z;
+
+    cin >> x;
+    cin >> y;	
+    cin >> z;
+    
+    const MyClass myConstObj(x, y);
+    
+    myConstObj.setxMem(z);
+    cout << myConstObj.getxMem() << endl;
+    
+    return 0;
+}
