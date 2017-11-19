@@ -1,0 +1,67 @@
+Fill up the blanks to get the desired output according to the test cases.
+Sample Test Cases
+Input	                     Output
+Test Case 1	
+5
+6
+                         Ctor: (8, 4)
+                         main
+                         Ctor: (5, 5)
+                         Ctor: (4, 5)
+                         |8+j4| 
+                         |5+j5| 
+                         Dtor: (4, 5)
+                         Dtor: (5, 5)
+                         Dtor: (8, 4)
+Test Case 2	
+2.5
+3.5
+                         Ctor: (8, 4)
+                         main
+                         Ctor: (2.5, 5)
+                         Ctor: (4, 5)
+                         |8+j4| 
+                         |2.5+j5| 
+                         Dtor: (4, 5)
+                         Dtor: (2.5, 5)
+                         Dtor: (8, 4)
+Test Case 3	
+0
+1
+                         Ctor: (8, 4)
+                         main
+                         Ctor: (0, 5)
+                         Ctor: (4, 5)
+                         |8+j4| 
+                         |0+j5| 
+                         Dtor: (4, 5)
+                         Dtor: (0, 5)
+                         Dtor: (8, 4)
+////////////////////////////////////
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Complex { private: double re_, im_;
+public:
+     Complex(double re = 4.0, double im = 5.0): re_(re), im_(im) 
+         { cout << "Ctor: (" << re_ << ", " << im_ << ")" << endl; }
+     ~Complex() 
+         { cout << "Dtor: (" << re_ << ", " << im_ << ")" << endl; }
+
+     void print() { cout << "|" << re_ << "+j" << im_ << "| " << endl; }
+};
+Complex c(8,4); // Fill the blank
+int main() {
+    cout << "main" << endl;
+    double x, y;
+
+    cin >> x;
+
+    cin >> y;
+    Complex d(x); Complex e; 
+    c.print(); 
+    d.print(); 
+    
+    return 0;
+}	
