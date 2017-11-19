@@ -1,0 +1,60 @@
+Consider the class 'Box' where dimensions are defined. complete the code so that 
+two boxes with different dimensions can be added/merged to form another new box with new dimensions. So that test cases should pass.
+
+Sample Test Cases
+
+Input	                  Output
+Test Case 1	
+6
+4
+2
+                         20
+Test Case 2	
+1
+1
+10
+                         20
+Test Case 3	
+6
+6
+6
+                         20
+//////////////////////////
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Box {
+private:
+    int length, breadth, height;
+public:
+
+    Box(int a = 0, int b = 0, int c = 0) :
+    length(a), breadth(b), height(c) {};
+
+    int getDimension() {
+        return length + breadth + height;
+    }
+Box operator+(const Box& b){ // Fill the name of the function
+ 
+        Box box;
+        box.length =length;
+  		box.breadth =breadth; 
+ 	    box.height = height+2; 
+  
+        
+        return box;
+    }
+};
+int main() {
+    int l = 0, b = 0, h = 0;
+    cin >> l; cin >> b; cin >> h;
+
+    Box Box1(4, 6, 8), Box2(l, b, h), Box3;
+    Box3 = Box1 + Box2;
+
+    int dim = Box3.getDimension();
+    cout << dim;
+
+    return 0;
+}
